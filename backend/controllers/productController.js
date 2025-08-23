@@ -7,7 +7,6 @@ import Product from '../model/productModel.js';
 const getProdcut=asyncHandler(async(req,res)=>{
     const products = await Product.find({});
     res.json(products);
-
 });
 
 //@desc Fetch a single product
