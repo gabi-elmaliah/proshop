@@ -9,9 +9,6 @@ import Loader from '../components/Loader';
 function HomeScreen() {
    const {data:products,isLoading,error}=useGetProductsQuery();
 
-    
-
-   
 
   return (
     <>
