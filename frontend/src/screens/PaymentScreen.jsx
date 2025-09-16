@@ -38,7 +38,7 @@ function PaymentScreen() {
                 <Form.Label as='legend'>Select Method</Form.Label>
                 <Col>
                     <Form.Check type='radio' className='my-2' 
-                    lavel='Paypal or Credit Card'
+                    label='Paypal or Credit Card'
                     id='Paypal'
                     name='paymentMethod'
                     value='Paypal'
