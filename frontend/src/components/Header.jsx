@@ -29,7 +29,7 @@ const Header= () => {
         }
     }
 
-    const itemsCount = cartItems.length;
+   
     return (
         <div>
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>

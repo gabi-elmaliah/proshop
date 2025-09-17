@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import {useDispatch,useSelector} from 'react-redux'
 import { savePaymentMethod } from '../slices/cartSlice'
 import FormContainer from '../components/FormContainer'
-import CheckOutSteps from '../components/CheckOutSteps'
+import CheckoutSteps from '../components/CheckoutSteps'
 
 function PaymentScreen() {
     const [paymentMethod,setPaymentMethod]=useState('Paypal')
@@ -31,7 +31,7 @@ function PaymentScreen() {
 
   return (
     <FormContainer>
-        <CheckOutSteps step1 step2 step3/>
+        <CheckoutSteps step1 step2 step3/>
         <h1>Payment Method</h1>
         <Form onSubmit={submitHandler}>
             <Form.Group>

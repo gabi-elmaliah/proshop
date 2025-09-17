@@ -1,7 +1,7 @@
 import {Nav, NavbarCollapse} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 
-function CheckOutSteps({step1,step2,step3,step4}) {
+function CheckoutSteps({step1,step2,step3,step4}) {
   return (
     <Nav className='justify-content-center mb-4'>
         <Nav.Item>
@@ -51,4 +51,4 @@ function CheckOutSteps({step1,step2,step3,step4}) {
   )
 }
 
-export default CheckOutSteps
+export default CheckoutSteps

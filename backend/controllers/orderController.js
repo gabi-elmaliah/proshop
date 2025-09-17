@@ -1,5 +1,6 @@
 import asyncHandler from '../middleware/asyncHandler.js';
-import Order from '../model/productModel.js';
+import Order from '../model/orderModel.js';
+
 
 //@desc Create new order
 //@route POST /api/orders
@@ -13,6 +14,8 @@ const addOrderItems=asyncHandler(async(req,res)=>{
         taxPrice,
         shippingPrice,
         totalPrice }=req.body
+
+       
 
         if (orderItems && orderItems.length===0){
             res.status(400)
@@ -37,6 +40,7 @@ const addOrderItems=asyncHandler(async(req,res)=>{
             res.status(201).json(createdOrder)
         }
 });
+
 
 //@desc Get logged in user orders
 //@route GET /api/orders/myorders
