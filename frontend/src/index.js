@@ -4,12 +4,16 @@ import ReactDOM from 'react-dom/client';
 import './assets/styles/bootstrap.custom.css';
 import './assets/styles/index.css';
 import App from './App';
+
 import {Provider} from 'react-redux';
 import store from './store';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from   './screens/ProductScreen';
 import PrivateRoute from './components/PrivateRoute';
+import OrderListScreen from './screens/admin/OrderListScreen';
+import ProductListScreen from './screens/admin/ProductListScreen';
+import AdminRoute from './components/AdminRoute';
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -17,6 +21,8 @@ import ShippingScreen from './screens/ShippingScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import OrderScreen from './screens/OrderScreen';
+import {PayPalScriptProvider} from '@paypal/react-paypal-js';
+import ProfileScreen from './screens/ProfileScreen';
 
 import {
   createBrowserRouter,
@@ -41,6 +47,14 @@ const router = createBrowserRouter(
           <Route path="/payment" element={<PaymentScreen/>} />
           <Route path="/placeorder" element={<PlaceOrderScreen/>} />
           <Route path="/order/:id" element={<OrderScreen/>} />
+          <Route path="/profile" element={<ProfileScreen/>} />
+      </Route>
+
+      <Route path='' element={<AdminRoute/>}>
+          <Route path="/admin/orderlist" element={<OrderListScreen/>} />
+          <Route path="/admin/productlist" element={<ProductListScreen/>} />
+          
+          
       </Route>
     </Route>
   )
@@ -50,7 +64,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PayPalScriptProvider deferLoading={true}>
+        <RouterProvider router={router} />
+      </PayPalScriptProvider>
     </Provider>
   </React.StrictMode>
 );
