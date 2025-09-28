@@ -1,19 +1,31 @@
 import { LinkContainer
  } from "react-router-bootstrap"
 import { Table, Button,Row,Col } from "react-bootstrap"
-import { FaTimes,FaEdit,FaTrash } from "react-icons/fa"
+import {FaEdit,FaTrash } from "react-icons/fa"
 import Message from "../../components/Message"
 import Loader from "../../components/Loader"
-import { useGetProductsQuery,useCrateProductMutation } from "../../slices/productsApiSlice"
+import { useGetProductsQuery,useCrateProductMutation,useDeleteProductMutation } from "../../slices/productsApiSlice"
 import {toast} from 'react-toastify'
 
 function ProductListScreen() {
-    const {data:products,isLoading,error,refetch}=useGetProductsQuery()
+     const {data:products,isLoading,error,refetch}=useGetProductsQuery()
 
     const [createProduct,{isLoading:loadingCreate}]=useCrateProductMutation()
 
-    const deleteHandler=(id)=>{
-        console.log('delete',id);
+    const [deleteProduct,{isLoading:loadingDelete}]=useDeleteProductMutation()
+
+    const deleteHandler=async(id)=>{
+        if(window.confirm('Are you sure you want to delete this product?')){
+            try{
+                await deleteProduct(id).unwrap();
+                refetch();
+                toast.success('Product deleted successfully')
+            }
+            catch(err){
+                toast.error(err?.data?.message || err.error)
+            }
+        }
+        
 
     }
 
@@ -45,9 +57,7 @@ function ProductListScreen() {
         </Row>
 
         {loadingCreate && <Loader/>}
-
-
-
+        {loadingDelete && <Loader/>}
         {isLoading ? <Loader/> : error ? <Message variant="danger">{error?.data?.message || error.error}</Message> : (
             <>
                 <Table striped hover responsive className="table-sm">
@@ -97,5 +107,7 @@ function ProductListScreen() {
     </>
   )
 }
+
+
 
 export default ProductListScreen
