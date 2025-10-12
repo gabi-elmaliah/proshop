@@ -1,12 +1,20 @@
+import { Query } from 'mongoose';
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../model/productModel.js';
 
 //@desc Fetch all products
 //@route GET /api/products
 //@access Public
-const getProdcut=asyncHandler(async(req,res)=>{
-    const products = await Product.find({});
-    res.json(products);
+const getProduct=asyncHandler(async(req,res)=>{
+    const pageSize=1;
+    const page=Number(req.query.pageNumber) || 1;
+    const keyword=req.query.keyword ? {name: {$regex: req.query.keyword,$options:'i'}}:{}
+
+    const count =await Product.countDocuments({...keyword})
+
+    const products = await Product.find({...keyword}).limit(pageSize)
+    .skip(pageSize*(page-1));
+    res.json({products,page,pages:Math.ceil(count/pageSize)});
 });
 
 //@desc Fetch a single product
@@ -123,5 +131,14 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 });
 
+//@desc Get top rated products
+//@route GET /api/products/top
+//@access Public
+const getTopProducts=asyncHandler(async(req,res)=>{
+   const products = await Product.find({}).sort({rating:-1}).limit(3);
 
-export {updateProduct,getProdcut, getProdcutById,createProduct,deleteProduct,createProductReview};
+   res.status(200).json(products)
+});
+
+
+export {updateProduct,getProduct, getProdcutById,createProduct,deleteProduct,createProductReview,getTopProducts};

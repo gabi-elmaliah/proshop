@@ -1,5 +1,5 @@
 import {Form,Button,Col} from 'react-bootstrap'
-import {useState,useEffect, use} from 'react'
+import {useState,useEffect,} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch,useSelector} from 'react-redux'
 import { savePaymentMethod } from '../slices/cartSlice'

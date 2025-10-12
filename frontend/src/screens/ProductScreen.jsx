@@ -1,6 +1,6 @@
 import { useState } from "react"
 import {useParams,Link,useNavigate } from "react-router-dom"
-import {Form,Row,Col,Image,ListGroup,Card,Button, ListGroupItem} from 'react-bootstrap'
+import {Form,Row,Col,Image,ListGroup,Card,Button, } from 'react-bootstrap'
 import { useGetProductDetailsQuery,useCreateReviewMutation } from "../slices/productsApiSlice"
 import { addToCart } from "../slices/cartSlice"
 import Rating from '../components/Rating'
@@ -8,6 +8,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { useDispatch,useSelector } from "react-redux"
 import {toast} from 'react-toastify'
+import Meta from '../components/Meta'
 
 
 const  ProductScreen =()=> {
@@ -59,8 +60,8 @@ const  ProductScreen =()=> {
             <Link className='btn btn-light my-3' to='/'>Go Back</Link>
             {isLoading ? (<Loader />): error ? (<Message variant='danger'>error?.data?.message || error.error</Message>) :(
             <>
+            <Meta title={product.name}  />
 
-            
             <Row>
                 <Col md={5}>
                     <Image src={product.image} alt={product.name} fluid />
