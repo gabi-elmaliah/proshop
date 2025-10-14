@@ -19,7 +19,7 @@ const getProducts=asyncHandler(async(req,res)=>{
 //@desc Fetch a single product
 //@route GET /api/products
 //@access Public
-const getProdcutById=asyncHandler(async(req,res)=>{
+const getProductById=asyncHandler(async(req,res)=>{
    const product = await Product.findById(req.params.id);
 
     if(product){
@@ -140,4 +140,4 @@ const getTopProducts=asyncHandler(async(req,res)=>{
 });
 
 
-export {updateProduct,getProducts, getProdcutById,createProduct,deleteProduct,createProductReview,getTopProducts};
+export {updateProduct,getProducts, getProductById,createProduct,deleteProduct,createProductReview,getTopProducts};
