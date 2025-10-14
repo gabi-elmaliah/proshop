@@ -41,8 +41,7 @@ function ShippingScreen() {
 
             <Form.Group controlId='city' className='my-2'>
                 <Form.Label>City</Form.Label>
-                <Form.Control type='text' placeholder='Enter city' value={address} onChange={(e)=>setCity(e.target.value)}></Form.Control>
-
+                <Form.Control type='text' placeholder='Enter city' value={city} onChange={(e)=>setCity(e.target.value)}></Form.Control>
             </Form.Group>
 
             
