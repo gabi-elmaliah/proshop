@@ -1,12 +1,11 @@
-import { Query } from 'mongoose';
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../model/productModel.js';
 
 //@desc Fetch all products
 //@route GET /api/products
 //@access Public
-const getProduct=asyncHandler(async(req,res)=>{
-    const pageSize=1;
+const getProducts=asyncHandler(async(req,res)=>{
+    const pageSize=process.env.PAGINATION_LIMIT;
     const page=Number(req.query.pageNumber) || 1;
     const keyword=req.query.keyword ? {name: {$regex: req.query.keyword,$options:'i'}}:{}
 
@@ -141,4 +140,4 @@ const getTopProducts=asyncHandler(async(req,res)=>{
 });
 
 
-export {updateProduct,getProduct, getProdcutById,createProduct,deleteProduct,createProductReview,getTopProducts};
+export {updateProduct,getProducts, getProdcutById,createProduct,deleteProduct,createProductReview,getTopProducts};
