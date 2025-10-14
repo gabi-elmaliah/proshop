@@ -41,6 +41,9 @@ const cartSlice=createSlice({
         clearCartItems:(state,action)=>{
             state.cartItems=[];
             return updateCart(state);
+        },
+        resetCart:(state,action)=>{
+           state=initialState 
         }
 
 

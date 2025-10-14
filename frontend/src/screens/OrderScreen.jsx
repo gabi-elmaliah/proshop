@@ -52,7 +52,7 @@ function OrderScreen() {
   function onApprove(data,actions){
     return actions.order.capture().then(async function(details){
       try{
-        await payOrder({orderId,details});
+        await payOrder({orderId,details}).unwrap();
         refetch(); // to update order state
         toast.success('Order is paid'); 
       }catch(err){
@@ -64,12 +64,7 @@ function OrderScreen() {
 
 
   }
-  // async function onApproveTest(){
-  //     await payOrder({orderId,details:{payer:{}}});
-  //     refetch(); // to update order state
-  //     toast.success('Order is paid'); 
-    
-  //   }
+  
   const createOrder=(data,actions)=>{
       return actions.order.create({
         purchase_units:[
