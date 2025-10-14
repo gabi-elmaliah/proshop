@@ -1,6 +1,6 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import Order from '../model/orderModel.js';
-import Product from '../models/productModel.js';
+import Product from '../model/productModel.js';
 import { calcPrices } from '../utils/calcPrices.js';
 import { verifyPayPalPayment, checkIfNewTransaction } from '../utils/paypal.js';
 
