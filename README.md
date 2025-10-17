@@ -34,14 +34,12 @@ The application is deployed at [https://proshop-qahv.onrender.com](https://prosh
 
 ## 🧩 Tech Stack
 
-| Layer | Technology |
-|-------|-------------|
-| **Frontend** | React, Redux Toolkit, React Router, React Bootstrap |
-| **Backend** | Node.js, Express.js, Mongoose |
-| **Database** | MongoDB |
-| **Authentication** | JWT (JSON Web Token) |
-| **Payments** | PayPal REST API |
-| **Deployment** | Render / Vercel |
+**Frontend:** React, Redux Toolkit, React Router, React Bootstrap
+**Backend:** Node.js, Express.js, Mongoose
+**Database:** MongoDB
+**Authentication:** JWT (JSON Web Token)
+**Payments:** PayPal REST API
+**Deployment:** Render
 
 ---
 
@@ -117,11 +115,3 @@ npm run build
 ![](./screenshots/AdminProducts.png)
 
 ![](./screenshots/AdminUser.png)
-
-
-
-
-
-
-
-
