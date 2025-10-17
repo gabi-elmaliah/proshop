@@ -12,9 +12,9 @@ The application is deployed at [https://proshop-qahv.onrender.com](https://prosh
 
 ---
 
-## 🚀 Features
+## Features
 
-### 👤 User Features
+### User Features
 
 - User registration and login (JWT authentication)
 - Profile management
@@ -23,7 +23,7 @@ The application is deployed at [https://proshop-qahv.onrender.com](https://prosh
 - PayPal payment integration
 - Order history and details
 
-### 🛠️ Admin Features
+### Admin Features
 
 - Manage products (create, edit, delete)
 - Upload product images
@@ -32,7 +32,7 @@ The application is deployed at [https://proshop-qahv.onrender.com](https://prosh
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 **Frontend:** React, Redux Toolkit, React Router, React Bootstrap
 **Backend:** Node.js, Express.js, Mongoose
@@ -43,7 +43,7 @@ The application is deployed at [https://proshop-qahv.onrender.com](https://prosh
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the repository
 
@@ -76,7 +76,7 @@ PAYPAL_CLIENT_ID=your_paypal_client_id
 
 ---
 
-## 🧱 Scripts
+## Scripts
 
 ```bash
 # Run backend only
