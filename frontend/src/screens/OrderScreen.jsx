@@ -44,7 +44,6 @@ function OrderScreen() {
         }
       }
 
-
     }
 
   },[order,paypal,paypalDispatch,errorPayPal,loadingPaypal]);
@@ -205,9 +204,7 @@ function OrderScreen() {
 
                 {isPending ? <Loader/> : (
                   <div>
-                    {/* <Button onClick={onApproveTest} style={{marginBottom:'10px'}}>
-                      Test PayOrder
-                    </Button> */}
+                  
 
                     <div>
                       <PayPalButtons 
