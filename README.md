@@ -1,4 +1,4 @@
-# 🛒 ProShop MERN eCommerce Platform
+# ProShop MERN eCommerce Platform
 
 A full-featured eCommerce application built using the **MERN stack** (MongoDB, Express, React, Node.js) and **Redux Toolkit**.  
 Users can browse products, add items to their cart, place orders, pay securely via **PayPal**, and manage their account.  
